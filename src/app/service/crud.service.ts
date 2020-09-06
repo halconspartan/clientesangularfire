@@ -6,10 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class CrudService {
 
-  constructor(fireservices: AngularFirestore) { }
+  constructor( public fireservices: AngularFirestore) { }
 
   // tslint:disable-next-line: typedef
-  create_Newcliente()
+  create_Newcliente(Record)
   {
+    return this.fireservices.collection('clientes').add(Record);
   }
 }

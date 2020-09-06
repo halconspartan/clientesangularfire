@@ -27,14 +27,17 @@
       </div>
       <div class="form-group">
         <label for="correos">Correos:</label>
-        <input type="email" class="form-control" [(ngModel)]="clienteCorreos" id="correos" required>
-        <input type="email" class="form-control" [(ngModel)]="clienteCorreos" id="correos" required>
+        <input type="email" class="form-control" [(ngModel)]="clienteCorreo1" id="correos" required>
+        <input type="email" class="form-control" [(ngModel)]="clienteCorreo2" id="correos" required>
       </div>
       <div class="form-group">
         <label for="comentarios">¿Hay alguna otra información que pienses que nos podría interesar o deberíamos saber?</label><br>
         <textarea id="comentarios" [(ngModel)]="clienteComentarios" rows="3" cols="100"></textarea> 
       </div>
       <div class="form-group">
-          <button class="btn btn-primary" (click)="CrearRegistro()" [disabled]="!clienteNombres || !clienteApellidos || !clienteTelefono || !clienteDireccion || !clienteFecha || !clienteCorreos || !clienteComentarios">Crear Cliente</button>
+          <button class="btn btn-primary" (click)="CrearRegistro()" [disabled]="!clienteNombres || !clienteApellidos || !clienteTelefono || !clienteDireccion || !clienteFecha || !clienteCorreo1 || !clienteCorreo2 || !clienteComentarios">Crear Cliente</button>
       </div>
+      <div class="form-group">
+        <h4><b>{{mensaje}}</b></h4>
+    </div>
   </div>
