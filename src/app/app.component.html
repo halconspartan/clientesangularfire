@@ -6,31 +6,35 @@
           <h1>CRUD Clientes</h1>
       </div>
       <div class="form-group">
-          <label for="nombres">Ingrese su nombres:</label> 
-          <input type="text" class="form-control" id="nombres">
+          <label for="nombres">Nombres:</label> 
+          <input type="text" class="form-control" [(ngModel)]="clienteNombres" id="nombres" required>
       </div>
       <div class="form-group">
-        <label for="apellidos">Ingrese sus apellidos:</label>
-        <input type="text" class="form-control" id="apellidos">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" class="form-control" [(ngModel)]="clienteApellidos" id="apellidos" required>
       </div>
       <div class="form-group">
-          <label for="telefono">Ingrese su No. de Telefono:</label>
-          <input type="number" class="form-control" id="telefono">
+          <label for="telefono">No. de Telefono:</label>
+          <input type="tel" class="form-control" [(ngModel)]="clienteTelefono" id="telefono" required pattern="[0-9]{10}">
       </div>
       <div class="form-group">
-          <label for="direccion">Ingrese su direccion:</label>
-          <input type="text" class="form-control" id="direccion">
+          <label for="direccion">Direccion:</label>
+          <input type="text" class="form-control" [(ngModel)]="clienteDireccion" id="direccion" required>
       </div>
       <div class="form-group">
-        <label for="fechanac">Ingrese su fecha de nacimiento:</label>
-        <input type="date" class="form-control" id="fechanac">
+        <label for="fechanac">Fecha de nacimiento:</label>
+        <input type="date" class="form-control" [(ngModel)]="clienteFecha" id="fechanac" required>
       </div>
       <div class="form-group">
-        <label for="correos">Ingrese sus correos:</label>
-        <input type="email" class="form-control" id="correos">
-        <input type="email" class="form-control" id="correos">
+        <label for="correos">Correos:</label>
+        <input type="email" class="form-control" [(ngModel)]="clienteCorreos" id="correos" required>
+        <input type="email" class="form-control" [(ngModel)]="clienteCorreos" id="correos" required>
       </div>
       <div class="form-group">
-          <button class="btn btn-primary">Crear Cliente</button>
+        <label for="comentarios">¿Hay alguna otra información que pienses que nos podría interesar o deberíamos saber?</label><br>
+        <textarea id="comentarios" [(ngModel)]="clienteComentarios" rows="3" cols="100"></textarea> 
+      </div>
+      <div class="form-group">
+          <button class="btn btn-primary" [disabled]="!clienteNombres || !clienteApellidos || !clienteTelefono || !clienteDireccion || !clienteFecha || !clienteCorreos || !clienteComentarios">Crear Cliente</button>
       </div>
   </div>
