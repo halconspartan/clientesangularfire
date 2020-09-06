@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {CrudService} from './service/crud.service';
 
 @Component({
   selector: 'app-root',
@@ -16,4 +17,11 @@ export class AppComponent {
   clienteFecha: string;
   clienteCorreos: string[];
   clienteComentarios: string;
+
+  constructor(crudservice: CrudService){}
+
+  // tslint:disable-next-line: typedef
+  CrearRegistro(){
+    alert('El formulario se envio');
+  }
 }
