@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angularclientes": {
+      "hosting": {
+        "anficlientes": [
+          "angularclientes"
+        ]
+      }
+    }
+  }
+}
