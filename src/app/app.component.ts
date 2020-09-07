@@ -126,4 +126,9 @@ export class AppComponent {
     this.crudservice.update_cliente(recorddata.id, record);
     recorddata.isedit = false;
   }
+  // tslint:disable-next-line: typedef
+  Eliminarcliente(recordid)
+  {
+    this.crudservice.delete_cliente(recordid);
+  }
 }

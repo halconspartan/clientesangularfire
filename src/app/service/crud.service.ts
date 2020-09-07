@@ -24,4 +24,10 @@ export class CrudService {
   {
     this.fireservices.doc('clientes/' + recordid).update(record);
   }
+
+  // tslint:disable-next-line: typedef
+  delete_cliente(recordid)
+  {
+    this.fireservices.doc('clientes/' + recordid).delete();
+  }
 }
