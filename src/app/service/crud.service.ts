@@ -13,4 +13,15 @@ export class CrudService {
   {
     return this.fireservices.collection('clientes').add(Record);
   }
+
+  // tslint:disable-next-line: typedef
+  get_Allclientes(){
+    return this.fireservices.collection('clientes').snapshotChanges();
+  }
+
+  // tslint:disable-next-line: typedef
+  update_cliente(recordid, record)
+  {
+    this.fireservices.doc('clientes/' + recordid).update(record);
+  }
 }

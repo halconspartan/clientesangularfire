@@ -40,4 +40,92 @@
       <div class="form-group">
         <h4><b>{{mensaje}}</b></h4>
     </div>
+
+    
+      <div class="col-md-12 p-2 justify-content-center">
+          <h4>Clientes Registrados</h4>
+      </div>
+      
+      <div class="col-md-3" *ngFor ="let cl of cliente">
+          
+          <div class="card" *ngIf="!cl.isedit; else elseBlock" style="width:600px">
+              <div class="card-body">
+                  <div class="card-title">
+                      Nombres: {{cl.nombres}}
+                  </div>
+                  <div class="card-subtitle">
+                      Apellidos: {{cl.apellidos}}
+                  </div>
+                  <div class="card-text">
+                     Telefono: {{cl.telefono}}
+                  </div>
+                  <div class="card-text">
+                    Direccion: {{cl.direccion}}
+                 </div>
+                 <div class="card-text">
+                    Fecha: {{cl.fecha}}
+                 </div>
+                 <div class="card-text">
+                    Correos: {{cl.correos[0]}}
+                    {{cl.correos[1]}}
+                 </div>
+                 <div class="card-text">
+                    Comentarios: {{cl.comentarios}}
+                 </div>
+                  <span>
+                      <a href="#" (click)="EditarRegistro(cl)" class="btn btn-primary btn-xs">Editar Cliente</a>
+                      <a href="#"  (click)= "Eliminarcliente(cl.id)" class="btn btn-danger btn-xs">Eliminar Cliente</a>
+                  </span>
+              </div>
+          </div>
+
+          <ng-template #elseBlock>
+            <div class="card" style="width:800px">
+                <div class="card-body">
+                    <div class="card-title">
+                        Editar Cliente
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                              <label for="nombres">Nombres:</label> 
+                              <input type="text" class="form-control" [(ngModel)]="cl.editarnombres" id="nombres" required>
+                          </div>
+                          <div class="col-md-12">
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" class="form-control" [(ngModel)]="cl.editarapellidos" id="apellidos" required>
+                          </div>
+                          <div class="col-md-12">
+                              <label for="telefono">No. de Telefono:</label>
+                              <input type="tel" class="form-control" [(ngModel)]="cl.editartelefono" id="telefono" required pattern="[0-9]{10}">
+                          </div>
+                          <div class="col-md-12">
+                              <label for="direccion">Direccion:</label>
+                              <input type="text" class="form-control" [(ngModel)]="cl.editardireccion" id="direccion" required>
+                          </div>
+                          <div class="col-md-12">
+                            <label for="fechanac">Fecha de nacimiento:</label>
+                            <input type="text" class="form-control" [(ngModel)]="cl.editarfecha" id="fechanac" required>
+                          </div>
+                          <div class="col-md-12">
+                            <label for="correos">Correos:</label>
+                            <input type="email" class="form-control" [(ngModel)]="cl.editarcorreos[0]" id="correos" required>
+                            <input type="email" class="form-control" [(ngModel)]="cl.editarcorreos[1]" id="correos" required>
+                          </div>
+                          <div class="col-md-12">
+                            <label for="comentarios">¿Hay alguna otra información que pienses que nos podría interesar o deberíamos saber?</label><br>
+                            <textarea id="comentarios" [(ngModel)]="cl.editarcomentarios" rows="3" cols="100"></textarea> 
+                          </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn btn-danger btn-xs" (click)="cl.isedit = false">Cancelar</a>
+                    <a href="#" class="btn btn-primary btn-xs" (click)="Actualizarregistro(cl)">Actualizar Cliente</a>
+               
+                </div>
+            </div>
+        </ng-template>
+
+        </div>
+    
   </div>
